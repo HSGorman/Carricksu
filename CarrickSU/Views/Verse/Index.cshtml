@@ -1,0 +1,22 @@
+﻿@model CarrickSU.Models.VerseList
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="d-flex flex-wrap">
+    <!--<div class="row">-->
+        @foreach (var verse in Model.List.Select((value, i) => new { i, value }))
+        {
+            if ((verse.i % 4) == 0)
+            {
+                <!--@Html.Raw("</div><div class='row'>");-->
+            }
+            <div class="p-2">
+                <a href="~/Verse/ShowVerse?imageUri=@verse.value.ImageUri">
+                    <img src="@Url.Content(@verse.value.ImageUri)" alt="..." class="img-thumbnail thumbnail">
+                </a>
+            </div>
+        }
+    <!--</div>-->
+</div>

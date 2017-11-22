@@ -1,0 +1,38 @@
+﻿@model CarrickSU.Models.ImageModel
+
+@{
+    ViewBag.Title = "ShowVerse";
+}
+@section scripts
+{
+    <script src="~/js/kinetic-v4.4.3.js"></script>
+    <script src="~/js/verseDisplay.js"></script>
+    <script>
+        var verseDisplay = new verseDisplay.verseDisplayAnimation('@Model.BaseUrl', '@Model.ImageUri');
+    </script>
+}
+
+<div class="viewport">
+    <span class="glyphicon glyphicon-chevron-down" id="ShowMenu"></span>
+    <span class="glyphicon glyphicon-chevron-up" id="HideMenu"></span>
+    <div class="row">
+        <div class="col-md-2" style="margin-right:1px;" id="MenuSlider">
+            <div class="menu nav-collapse width">
+                <div class="btn-group-vertical" id="AnimationButtonGroup">
+                    <button type="button" class="btn btn-default transparent" id="ButtonNone">Normal verse</button>
+                    <button type="button" class="btn btn-default transparent" id="ButtonSpin">Spin verse</button>
+                    <button type="button" class="btn btn-default transparent" id="ButtonWobble">Wobble verse</button>
+                    <button type="button" class="btn btn-default transparent" id="ButtonShrink">Shrink verse</button>
+                    <button type="button" class="btn btn-default transparent" id="ButtonCover">Add Covers</button>
+                    <button type="button" class="btn btn-default transparent" id="ButtonBounce">Bounce balls</button>
+                    <button type="button" class="btn btn-default transparent" id="ButtonCrazy">Crazy</button>
+                    <input type="range" class="transparent" min="-500" max="500" value="25" step="5" style="width:7em;" id="rangeSpeed" />
+                </div>
+            </div>
+        </div>
+        <div id='container' class="fixed-canvas">
+        </div>
+        <div id='blank' class="col-md-1" style="height:600px">
+        </div>
+    </div>
+</div>
